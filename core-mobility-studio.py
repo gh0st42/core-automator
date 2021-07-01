@@ -15,7 +15,9 @@ import subprocess
 import shlex
 from appJar import gui
 from coreposlib import *
+import os
 
+script_path = os.path.abspath(os.path.dirname(__file__))
 play_process = None
 
 
@@ -89,7 +91,7 @@ def press_record(btn):
     print("pressed: ", btn)
     filepath = get_filename()
     if filepath != "":
-        cmd = "./core-record.py -f " + filepath
+        cmd = script_path + "/core-record.py -f " + filepath
         print(cmd)
         subprocess.getstatusoutput(cmd)
         update_steps()
@@ -113,7 +115,7 @@ def press_playback(btn):
         change_state("normal", btn)
     else:
         if filepath != "":
-            cmd = "./core-automator.py -f " + filepath + get_delay()
+            cmd = script_path + "/core-automator.py -f " + filepath + get_delay()
             print(cmd)
             args = shlex.split(cmd)
             play_process = subprocess.Popen(args)
@@ -130,7 +132,7 @@ def press_loop(btn):
     else:
         filepath = get_filename()
         if filepath != "":
-            cmd = "./core-automator.py -l -f " + filepath + get_delay()
+            cmd = script_path + "/core-automator.py -l -f " + filepath + get_delay()
             args = shlex.split(cmd)
             play_process = subprocess.Popen(args)
             change_state("disabled", btn)
@@ -151,7 +153,8 @@ def press_step_move(btn):
             cur_step += 1
     filepath = get_filename()
     if filepath != "":
-        cmd = "./core-automator.py -f " + filepath + " -s " + str(cur_step)
+        cmd = script_path + "/core-automator.py -f " + \
+            filepath + " -s " + str(cur_step)
         subprocess.getstatusoutput(cmd)
         app.setStatusbar("Steps: " + str(cur_step+1) +
                          "/" + str(total_steps), 1)
