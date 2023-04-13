@@ -7,7 +7,6 @@ import sys
 import subprocess
 import time
 import getopt
-import string
 import glob
 import re
 
@@ -103,7 +102,7 @@ def load_posfile(filename, nodemap, session, cmd_delay=1.0, cmd_delay_set=False)
 
                 exec_cmd = ""
                 if len(fields) > 3:
-                    exec_cmd = string.join(fields[3:], " ")
+                    exec_cmd = str.join(" ", fields[3:])
                 step_moves.append((node, xpos, ypos, fields[0], exec_cmd))
 
     if cmd_delay_set == True:
