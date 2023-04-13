@@ -4,7 +4,7 @@ Various helper scripts to automate node movement in [CORE](https://www.nrl.navy.
 
 ## Prerequisites
 
-* Python 2.7
+* Python 3
 * Installed and running CORE network emulator
 * Nodes must be placed on grid using `core-gui`
 * Session must be started prior to script usage
