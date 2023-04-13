@@ -4,10 +4,7 @@
 # Written by Lars Baumgaertner (c) 2017-2021
 
 import sys
-import time
 import getopt
-import glob
-import re
 from coreposlib import *
 
 

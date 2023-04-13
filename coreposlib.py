@@ -3,10 +3,8 @@
 # coreposlib - library for replay of core node positions
 # Written by Lars Baumgaertner (c) 2017-2021
 
-import sys
 import subprocess
 import time
-import getopt
 import glob
 import re
 
